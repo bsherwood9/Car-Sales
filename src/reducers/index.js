@@ -24,6 +24,7 @@ export const carReducer = (state = initialState, action) => {
       console.log(action.payload.price);
       return {
         ...state,
+        additionalPrice: state.additionalPrice + action.payload.price,
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
@@ -33,15 +34,11 @@ export const carReducer = (state = initialState, action) => {
       console.log("remove click", state);
       return {
         ...state,
+        additionalPrice: state.additionalPrice - action.payload.price,
         car: {
           ...state.car,
           features: state.car.features.filter(item => item !== action.payload)
         }
-      };
-    case ADD_MONEY:
-      return {
-        additionalPrice: 500,
-        ...state
       };
     default:
       return state;

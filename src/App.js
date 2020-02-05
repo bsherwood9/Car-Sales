@@ -6,7 +6,7 @@ import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 
 import { connect } from "react-redux";
-import { addFeature, removeFeature, addMoney } from "./actions";
+import { addFeature, removeFeature } from "./actions";
 
 //Step 1 import
 
@@ -19,7 +19,6 @@ const App = props => {
   const addItem = item => {
     // dipsatch an action here to add an item
     props.addFeature(item);
-    props.addMoney(item);
   };
 
   return (
@@ -44,5 +43,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addFeature, removeFeature, addMoney }
+  { addFeature, removeFeature }
 )(App);
